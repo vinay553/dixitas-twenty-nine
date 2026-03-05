@@ -85,6 +85,10 @@ header p {
   font-weight: 700;
 }
 
+.solved-group.entering {
+  animation: solved-enter 300ms ease-out;
+}
+
 .solved-group small {
   display: block;
   margin-top: 0.2rem;
@@ -125,6 +129,17 @@ header p {
   }
 }
 
+@keyframes solved-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .tile {
   border: 1px solid #600909;
   border-radius: 10px;
@@ -150,6 +165,12 @@ header p {
   border-width: 3px;
   box-shadow: 0 0 0 2px #5a0303;
   transform: translateY(-2px);
+}
+
+.tile.loss-moving {
+  opacity: 0.22;
+  transform: translateY(-80px) scale(0.93);
+  transition: transform 320ms ease-in, opacity 320ms ease-in;
 }
 
 .controls {
