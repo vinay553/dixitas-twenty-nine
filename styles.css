@@ -96,6 +96,32 @@ header p {
   margin-top: 0.65rem;
 }
 
+.twenty-nine-marquee {
+  margin-top: 0.75rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.twenty-nine-marquee p {
+  margin: 0;
+  display: inline-block;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: #111111;
+  white-space: nowrap;
+  animation: twenty-nine-scroll 7s linear infinite;
+}
+
+@keyframes twenty-nine-scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-130%);
+  }
+}
+
 .tile {
   border: 1px solid #a61b2b;
   border-radius: 10px;
