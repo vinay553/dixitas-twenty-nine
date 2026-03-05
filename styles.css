@@ -227,6 +227,12 @@ button:disabled {
   bottom: 36px;
 }
 
+.corner-photo-center {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 22px;
+}
+
 @media (max-width: 520px) {
   .tile {
     min-height: 62px;
@@ -252,5 +258,9 @@ button:disabled {
   .corner-photo-right {
     right: 12px;
     bottom: 24px;
+  }
+
+  .corner-photo-center {
+    bottom: 16px;
   }
 }
