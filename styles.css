@@ -192,6 +192,8 @@ button:disabled {
 
 .corner-photo-left {
   left: 18px;
+  height: 234px;
+  bottom: 34px;
 }
 
 .corner-photo-right {
@@ -213,6 +215,8 @@ button:disabled {
 
   .corner-photo-left {
     left: 12px;
+    height: 168px;
+    bottom: 20px;
   }
 
   .corner-photo-right {
