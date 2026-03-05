@@ -29,6 +29,7 @@ const maxMistakes = 4;
 let mistakes = 0;
 let selectedWords = new Set();
 let solvedGroupIds = new Set();
+let solvedGroupOrder = [];
 
 const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
@@ -70,15 +71,15 @@ function renderBoard() {
 
 function renderSolvedGroups() {
   solvedGroupsEl.innerHTML = "";
-  groups
-    .filter((group) => solvedGroupIds.has(group.id))
-    .forEach((group) => {
-      const block = document.createElement("article");
-      block.className = "solved-group";
-      block.style.background = group.color;
-      block.innerHTML = `<div>${group.category}</div><small>${group.words.join(" - ")}</small>`;
-      solvedGroupsEl.appendChild(block);
-    });
+  solvedGroupOrder.forEach((groupId) => {
+    const group = groups.find((item) => item.id === groupId);
+    if (!group) return;
+    const block = document.createElement("article");
+    block.className = "solved-group";
+    block.style.background = group.color;
+    block.innerHTML = `<div>${group.category}</div><small>${group.words.join(" - ")}</small>`;
+    solvedGroupsEl.appendChild(block);
+  });
 }
 
 function updateStatus() {
@@ -133,6 +134,7 @@ function checkGuess() {
 
   if (matched) {
     solvedGroupIds.add(matched.id);
+    solvedGroupOrder.push(matched.id);
     selectedWords.clear();
     renderSolvedGroups();
     renderBoard();
@@ -161,7 +163,12 @@ function checkGuess() {
 }
 
 function revealAllGroups() {
-  groups.forEach((group) => solvedGroupIds.add(group.id));
+  groups.forEach((group) => {
+    solvedGroupIds.add(group.id);
+    if (!solvedGroupOrder.includes(group.id)) {
+      solvedGroupOrder.push(group.id);
+    }
+  });
   renderSolvedGroups();
 }
 
