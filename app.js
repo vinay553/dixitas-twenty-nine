@@ -77,7 +77,7 @@ function wait(ms) {
 }
 
 function wrongGuessMessage(remainingGuesses) {
-  if (remainingGuesses === 3) return ":( cmon man";
+  if (remainingGuesses === 3) return "hey not quite";
   if (remainingGuesses === 2) return "hey maybe let's take a break and come back to this";
   if (remainingGuesses === 1) return "hey maybe it's time to ask Vinay for a hint";
   return "Not a valid category. Try again.";
