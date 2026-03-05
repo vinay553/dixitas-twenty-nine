@@ -37,6 +37,8 @@ let mistakes = 0;
 let selectedWords = new Set();
 let solvedGroupIds = new Set();
 let solvedGroupOrder = [];
+let guessedWrongSignatures = new Set();
+let isRevealingLoss = false;
 
 const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
@@ -62,6 +64,16 @@ function shuffle(items) {
     [items[i], items[j]] = [items[j], items[i]];
   }
   return items;
+}
+
+function signatureForWords(words) {
+  return [...words].sort().join("|");
+}
+
+function wait(ms) {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
 }
 
 function renderBoard() {
@@ -136,6 +148,7 @@ function checkGuess() {
   }
 
   const guess = [...selectedWords];
+  const guessSignature = signatureForWords(guess);
   const matched = groups.find((group) => {
     if (solvedGroupIds.has(group.id)) return false;
     return group.words.every((word) => guess.includes(word));
@@ -163,29 +176,48 @@ function checkGuess() {
     return;
   }
 
+  if (guessedWrongSignatures.has(guessSignature)) {
+    setMessage("already guessed");
+    return;
+  }
+
+  guessedWrongSignatures.add(guessSignature);
   mistakes += 1;
   updateStatus();
   selectedWords.clear();
   renderBoard();
 
   if (mistakes >= maxMistakes) {
-    setMessage("No guesses left. Refresh to play again.");
-    revealAllGroups();
-    endGame();
+    handleLoss();
     return;
   }
 
   setMessage("Not a valid category. Try again.");
 }
 
-function revealAllGroups() {
-  groups.forEach((group) => {
+async function handleLoss() {
+  if (isRevealingLoss) return;
+  isRevealingLoss = true;
+
+  clearBtn.disabled = true;
+  submitBtn.disabled = true;
+
+  const unsolvedGroups = groups.filter((group) => !solvedGroupIds.has(group.id));
+  for (const group of unsolvedGroups) {
+    selectedWords = new Set(group.words);
+    renderBoard();
+    await wait(550);
     solvedGroupIds.add(group.id);
-    if (!solvedGroupOrder.includes(group.id)) {
-      solvedGroupOrder.push(group.id);
-    }
-  });
-  renderSolvedGroups();
+    solvedGroupOrder.push(group.id);
+    selectedWords.clear();
+    renderSolvedGroups();
+    renderBoard();
+    await wait(240);
+  }
+
+  setMessage("Next time bud");
+  endGame();
+  isRevealingLoss = false;
 }
 
 function gameOver() {
