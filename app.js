@@ -27,7 +27,7 @@ const groups = [
 
 const successMessageByGroupId = {
   green: "Ok pipes",
-  yellow: "You did it 🫡",
+  yellow: "👏👏👏",
   indigo: "Good work bud",
   purple: "👀 I see you",
 };
@@ -149,6 +149,12 @@ function checkGuess() {
     renderBoard();
     const successMessage = successMessageByGroupId[matched.id] || "Correct group.";
     if (solvedGroupIds.size === groups.length) {
+      const guessesLeft = maxMistakes - mistakes;
+      if (guessesLeft === 1) {
+        setMessage("phew");
+        endGame();
+        return;
+      }
       setMessage(`${successMessage} You solved all four categories.`);
       endGame();
       return;
