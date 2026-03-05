@@ -219,18 +219,18 @@ button:disabled {
 .corner-photo-left {
   left: 18px;
   height: 234px;
-  bottom: 34px;
+  bottom: 18px;
 }
 
 .corner-photo-right {
   right: 18px;
-  bottom: 36px;
+  bottom: 18px;
 }
 
 .corner-photo-center {
   left: 50%;
   transform: translateX(-50%);
-  bottom: 22px;
+  bottom: 18px;
   height: 234px;
 }
 
@@ -253,16 +253,16 @@ button:disabled {
   .corner-photo-left {
     left: 12px;
     height: 168px;
-    bottom: 20px;
+    bottom: 12px;
   }
 
   .corner-photo-right {
     right: 12px;
-    bottom: 24px;
+    bottom: 12px;
   }
 
   .corner-photo-center {
-    bottom: 16px;
+    bottom: 12px;
     height: 168px;
   }
 }
