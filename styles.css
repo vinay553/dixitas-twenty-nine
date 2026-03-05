@@ -231,13 +231,14 @@ button:disabled {
 .corner-photo-right {
   right: 18px;
   bottom: 18px;
-  height: 234px;
+  height: 351px;
 }
 
 .corner-photo-center {
   left: calc(50% - 20px);
   transform: translateX(-50%);
   bottom: 18px;
+  height: 78px;
 }
 
 @media (max-width: 520px) {
@@ -265,10 +266,11 @@ button:disabled {
   .corner-photo-right {
     right: 12px;
     bottom: 12px;
-    height: 168px;
+    height: 252px;
   }
 
   .corner-photo-center {
     bottom: 12px;
+    height: 56px;
   }
 }
