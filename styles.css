@@ -94,6 +94,7 @@ header p {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.6rem;
+  margin-top: 0.65rem;
 }
 
 .tile {
@@ -170,7 +171,7 @@ button:disabled {
   line-height: 1.2;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 120ms ease-in;
+  transition: opacity 250ms ease-out;
   white-space: nowrap;
 }
 

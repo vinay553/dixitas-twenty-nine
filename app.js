@@ -214,7 +214,7 @@ function setMessage(text) {
   messageTimerId = window.setTimeout(() => {
     messageEl.classList.remove("visible");
     messageTimerId = null;
-  }, 1000);
+  }, 2000);
 }
 
 clearBtn.addEventListener("click", clearSelection);
