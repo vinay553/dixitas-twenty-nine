@@ -46,6 +46,8 @@ const mistakeDotsEl = document.getElementById("mistake-dots");
 const statusTextEl = document.getElementById("status-text");
 const solvedGroupsEl = document.getElementById("solved-groups");
 const headerEl = document.querySelector("header");
+const winBannerEl = document.getElementById("win-banner");
+const bannerTextEl = document.getElementById("banner-text");
 
 const clearBtn = document.getElementById("clear-btn");
 const submitBtn = document.getElementById("submit-btn");
@@ -172,10 +174,12 @@ function checkGuess() {
       const guessesLeft = maxMistakes - mistakes;
       if (guessesLeft === 1) {
         setMessage("phew");
+        showWinBanner();
         endGame();
         return;
       }
       setMessage("YOU DID IT.");
+      showWinBanner();
       endGame();
       return;
     }
@@ -235,6 +239,11 @@ function gameOver() {
 function endGame() {
   clearBtn.disabled = true;
   submitBtn.disabled = true;
+}
+
+function showWinBanner() {
+  if (!winBannerEl || !bannerTextEl) return;
+  bannerTextEl.textContent = "🥳 🥳 🥳 🥳 🥳";
 }
 
 function setMessage(text) {
