@@ -18,7 +18,13 @@
 body {
   margin: 0;
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  background: var(--bg);
+  background: repeating-linear-gradient(
+    to right,
+    #f7c8dc 0,
+    #f7c8dc 64px,
+    #e58aa0 64px,
+    #e58aa0 128px
+  );
   color: var(--text);
   min-height: 100vh;
 }
@@ -31,6 +37,10 @@ body {
 
 h1 {
   margin: 0;
+}
+
+header {
+  text-align: center;
 }
 
 header p {
@@ -118,6 +128,7 @@ header p {
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
