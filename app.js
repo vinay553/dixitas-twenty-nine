@@ -76,6 +76,13 @@ function wait(ms) {
   });
 }
 
+function wrongGuessMessage(remainingGuesses) {
+  if (remainingGuesses === 3) return ":( cmon man";
+  if (remainingGuesses === 2) return "it's not looking good. ok it's time to lock in";
+  if (remainingGuesses === 1) return "hey maybe it's time to ask Vinay for a hint";
+  return "Not a valid category. Try again.";
+}
+
 function renderBoard() {
   boardEl.innerHTML = "";
   const unsolvedWords = shuffledWords.filter((word) => !isWordSolved(word));
@@ -177,7 +184,7 @@ function checkGuess() {
   }
 
   if (guessedWrongSignatures.has(guessSignature)) {
-    setMessage("already guessed");
+    setMessage("Already guessed");
     return;
   }
 
@@ -192,7 +199,7 @@ function checkGuess() {
     return;
   }
 
-  setMessage("Not a valid category. Try again.");
+  setMessage(wrongGuessMessage(maxMistakes - mistakes));
 }
 
 async function handleLoss() {
