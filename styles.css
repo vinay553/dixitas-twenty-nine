@@ -158,10 +158,42 @@ button:disabled {
   font-weight: 700;
 }
 
+.corner-photo {
+  position: fixed;
+  bottom: 12px;
+  width: 120px;
+  max-width: 22vw;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.corner-photo-left {
+  left: 12px;
+}
+
+.corner-photo-right {
+  right: 12px;
+}
+
 @media (max-width: 520px) {
   .tile {
     min-height: 62px;
     font-size: 0.82rem;
     padding: 0.45rem;
+  }
+
+  .corner-photo {
+    width: 84px;
+    bottom: 8px;
+  }
+
+  .corner-photo-left {
+    left: 8px;
+  }
+
+  .corner-photo-right {
+    right: 8px;
   }
 }
