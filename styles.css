@@ -97,7 +97,7 @@ header p {
 }
 
 .twenty-nine-marquee {
-  margin-top: 0.75rem;
+  margin-top: 1rem;
   overflow: hidden;
   width: 100%;
 }
@@ -107,6 +107,7 @@ header p {
   display: inline-block;
   font-weight: 800;
   font-style: italic;
+  font-size: clamp(4rem, 10vw, 6.5rem);
   letter-spacing: 0.06em;
   color: #111111;
   white-space: nowrap;
@@ -231,6 +232,10 @@ button:disabled {
     min-height: 62px;
     font-size: 0.82rem;
     padding: 0.45rem;
+  }
+
+  .twenty-nine-marquee p {
+    font-size: clamp(2.5rem, 14vw, 4rem);
   }
 
   .corner-photo {
