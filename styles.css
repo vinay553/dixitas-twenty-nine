@@ -161,8 +161,9 @@ button:disabled {
 .corner-photo {
   position: fixed;
   bottom: 18px;
-  width: 120px;
-  max-width: 22vw;
+  height: 78px;
+  width: auto;
+  max-height: 18vw;
   border-radius: 10px;
   border: 2px solid #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -186,7 +187,7 @@ button:disabled {
   }
 
   .corner-photo {
-    width: 84px;
+    height: 56px;
     bottom: 12px;
   }
 
