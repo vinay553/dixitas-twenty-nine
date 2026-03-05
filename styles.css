@@ -160,7 +160,7 @@ button:disabled {
 
 .corner-photo {
   position: fixed;
-  bottom: 12px;
+  bottom: 18px;
   width: 120px;
   max-width: 22vw;
   border-radius: 10px;
@@ -170,11 +170,12 @@ button:disabled {
 }
 
 .corner-photo-left {
-  left: 12px;
+  left: 18px;
 }
 
 .corner-photo-right {
-  right: 12px;
+  right: 18px;
+  bottom: 36px;
 }
 
 @media (max-width: 520px) {
@@ -186,14 +187,15 @@ button:disabled {
 
   .corner-photo {
     width: 84px;
-    bottom: 8px;
+    bottom: 12px;
   }
 
   .corner-photo-left {
-    left: 8px;
+    left: 12px;
   }
 
   .corner-photo-right {
-    right: 8px;
+    right: 12px;
+    bottom: 24px;
   }
 }
