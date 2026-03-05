@@ -137,6 +137,16 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.submit-btn {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.submit-btn:hover {
+  background: #000000;
+}
+
 .msg {
   margin-top: 1rem;
   font-weight: 700;

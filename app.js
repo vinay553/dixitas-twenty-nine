@@ -37,7 +37,6 @@ const statusTextEl = document.getElementById("status-text");
 const solvedGroupsEl = document.getElementById("solved-groups");
 
 const clearBtn = document.getElementById("clear-btn");
-const shuffleBtn = document.getElementById("shuffle-btn");
 const submitBtn = document.getElementById("submit-btn");
 
 const messageEl = document.createElement("p");
@@ -119,12 +118,6 @@ function clearSelection() {
   renderBoard();
 }
 
-function shuffleBoard() {
-  if (gameOver()) return;
-  shuffledWords = shuffle([...shuffledWords]);
-  renderBoard();
-}
-
 function checkGuess() {
   if (gameOver()) return;
   if (selectedWords.size !== 4) {
@@ -178,7 +171,6 @@ function gameOver() {
 
 function endGame() {
   clearBtn.disabled = true;
-  shuffleBtn.disabled = true;
   submitBtn.disabled = true;
 }
 
@@ -187,7 +179,6 @@ function setMessage(text) {
 }
 
 clearBtn.addEventListener("click", clearSelection);
-shuffleBtn.addEventListener("click", shuffleBoard);
 submitBtn.addEventListener("click", checkGuess);
 
 updateStatus();
