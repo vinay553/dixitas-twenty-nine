@@ -25,6 +25,13 @@ const groups = [
   },
 ];
 
+const successMessageByGroupId = {
+  green: "Ok pipes",
+  yellow: "You did it 🫡",
+  indigo: "Good work bud",
+  purple: "👀 I see you",
+};
+
 const maxMistakes = 4;
 let mistakes = 0;
 let selectedWords = new Set();
@@ -138,12 +145,13 @@ function checkGuess() {
     selectedWords.clear();
     renderSolvedGroups();
     renderBoard();
+    const successMessage = successMessageByGroupId[matched.id] || "Correct group.";
     if (solvedGroupIds.size === groups.length) {
-      setMessage("You solved all four categories.");
+      setMessage(`${successMessage} You solved all four categories.`);
       endGame();
       return;
     }
-    setMessage("Correct group.");
+    setMessage(successMessage);
     return;
   }
 
