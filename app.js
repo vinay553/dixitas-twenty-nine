@@ -175,7 +175,7 @@ function checkGuess() {
         endGame();
         return;
       }
-      setMessage(`${successMessage} You solved all four categories.`);
+      setMessage("YOU DID IT.");
       endGame();
       return;
     }
