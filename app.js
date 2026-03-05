@@ -39,8 +39,6 @@ let solvedGroupIds = new Set();
 let solvedGroupOrder = [];
 let guessedWrongSignatures = new Set();
 let isRevealingLoss = false;
-let lossAnimatingWords = new Set();
-let enteringSolvedGroupId = null;
 
 const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
@@ -93,7 +91,6 @@ function renderBoard() {
     tile.type = "button";
     tile.className = "tile";
     if (selectedWords.has(word)) tile.classList.add("selected");
-    if (lossAnimatingWords.has(word)) tile.classList.add("loss-moving");
     tile.textContent = word;
     tile.addEventListener("click", () => toggleSelection(word));
     boardEl.appendChild(tile);
@@ -107,7 +104,6 @@ function renderSolvedGroups() {
     if (!group) return;
     const block = document.createElement("article");
     block.className = "solved-group";
-    if (group.id === enteringSolvedGroupId) block.classList.add("entering");
     block.style.background = group.color;
     block.innerHTML = `<div>${group.category}</div><small>${group.words.join(" - ")}</small>`;
     solvedGroupsEl.appendChild(block);
@@ -216,26 +212,15 @@ async function handleLoss() {
   const unsolvedGroups = groups.filter((group) => !solvedGroupIds.has(group.id));
   for (const group of unsolvedGroups) {
     selectedWords = new Set(group.words);
-    lossAnimatingWords = new Set();
     renderBoard();
-    await wait(280);
-
-    lossAnimatingWords = new Set(group.words);
-    renderBoard();
-    await wait(320);
+    await wait(550);
 
     solvedGroupIds.add(group.id);
     solvedGroupOrder.push(group.id);
-    enteringSolvedGroupId = group.id;
     selectedWords.clear();
-    lossAnimatingWords = new Set();
     renderSolvedGroups();
     renderBoard();
-    await wait(360);
-
-    enteringSolvedGroupId = null;
-    renderSolvedGroups();
-    await wait(100);
+    await wait(240);
   }
 
   setMessage("Next time bud");
