@@ -1,35 +1,35 @@
 const groups = [
   {
-    id: "green",
-    color: "var(--green)",
-    category: "Programming Languages",
-    words: ["RUST", "GO", "RUBY", "SWIFT"],
+    id: "purple",
+    color: "var(--purple)",
+    category: "First word of names of places you've lived in",
+    words: ["BLUE", "BUDGET", "RISE", "JUNCTION"],
   },
   {
     id: "yellow",
     color: "var(--yellow)",
-    category: "Planets",
-    words: ["MARS", "VENUS", "EARTH", "SATURN"],
+    category: "Part of your cha& order",
+    words: ["MACADAMIA", "ICED", "CARDIMUM", "MATCHA"],
+  },
+  {
+    id: "green",
+    color: "var(--green)",
+    category: "Places you've bought mugs",
+    words: ["LISBON", "MEXICO CITY", "MONTREAL", "WHITELAKE"],
   },
   {
     id: "indigo",
     color: "var(--indigo)",
-    category: "Coffee Drinks",
-    words: ["LATTE", "MOCHA", "ESPRESSO", "CAPPUCCINO"],
-  },
-  {
-    id: "purple",
-    color: "var(--purple)",
-    category: "Board Games",
-    words: ["CHESS", "RISK", "CLUE", "MONOPOLY"],
+    category: "Numbers associated with your fitness journey",
+    words: ["TEN K", "1350", "THIRTY AND THIRTY", "5:00"],
   },
 ];
 
 const successMessageByGroupId = {
-  green: "Ok pipes",
+  purple: "Ok pipes",
   yellow: "👏👏👏",
-  indigo: "Good work bud",
-  purple: "👀 I see you",
+  green: "Good work bud",
+  indigo: "👀 I see you",
 };
 
 const maxMistakes = 4;
