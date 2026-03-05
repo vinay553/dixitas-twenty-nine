@@ -136,6 +136,7 @@ header p {
   background: #7a0c0c;
   color: #ffffff;
   cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
 }
 
 .tile:hover {
@@ -143,9 +144,12 @@ header p {
 }
 
 .tile.selected {
-  background: #9d0208;
+  background: #ff4d4d;
   color: #ffffff;
-  border-color: #6a040f;
+  border-color: #ffffff;
+  border-width: 3px;
+  box-shadow: 0 0 0 2px #5a0303;
+  transform: translateY(-2px);
 }
 
 .controls {
