@@ -34,7 +34,9 @@ h1 {
 }
 
 header {
+  position: relative;
   text-align: center;
+  margin-bottom: 0.4rem;
 }
 
 header p {
@@ -153,9 +155,27 @@ button:disabled {
   background: #000000;
 }
 
-.msg {
-  margin-top: 1rem;
+.msg-popover {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 6px);
+  transform: translateX(-50%);
+  margin: 0;
+  background: #111111;
+  color: #ffffff;
+  padding: 0.3rem 0.55rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
   font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease-in;
+  white-space: nowrap;
+}
+
+.msg-popover.visible {
+  opacity: 1;
 }
 
 .corner-photo {

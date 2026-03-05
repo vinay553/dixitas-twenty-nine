@@ -43,13 +43,15 @@ const statusEl = document.getElementById("status");
 const mistakeDotsEl = document.getElementById("mistake-dots");
 const statusTextEl = document.getElementById("status-text");
 const solvedGroupsEl = document.getElementById("solved-groups");
+const headerEl = document.querySelector("header");
 
 const clearBtn = document.getElementById("clear-btn");
 const submitBtn = document.getElementById("submit-btn");
 
 const messageEl = document.createElement("p");
-messageEl.className = "msg";
-document.querySelector(".app").appendChild(messageEl);
+messageEl.className = "msg-popover";
+headerEl.appendChild(messageEl);
+let messageTimerId = null;
 
 const allWords = groups.flatMap((g) => g.words);
 let shuffledWords = shuffle([...allWords]);
@@ -190,7 +192,23 @@ function endGame() {
 }
 
 function setMessage(text) {
+  if (messageTimerId) {
+    clearTimeout(messageTimerId);
+    messageTimerId = null;
+  }
+
+  if (!text) {
+    messageEl.classList.remove("visible");
+    messageEl.textContent = "";
+    return;
+  }
+
   messageEl.textContent = text;
+  messageEl.classList.add("visible");
+  messageTimerId = window.setTimeout(() => {
+    messageEl.classList.remove("visible");
+    messageTimerId = null;
+  }, 1000);
 }
 
 clearBtn.addEventListener("click", clearSelection);
