@@ -34,7 +34,6 @@ h1 {
 }
 
 header {
-  position: relative;
   text-align: center;
   margin-bottom: 0.4rem;
 }
@@ -157,11 +156,8 @@ button:disabled {
 }
 
 .msg-popover {
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 6px);
-  transform: translateX(-50%);
-  margin: 0;
+  display: inline-block;
+  margin: 0.35rem 0 0;
   background: #111111;
   color: #ffffff;
   padding: 0.3rem 0.55rem;
@@ -170,6 +166,7 @@ button:disabled {
   font-weight: 700;
   line-height: 1.2;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: opacity 250ms ease-out;
   white-space: nowrap;
@@ -177,6 +174,7 @@ button:disabled {
 
 .msg-popover.visible {
   opacity: 1;
+  visibility: visible;
 }
 
 .corner-photo {
@@ -185,7 +183,7 @@ button:disabled {
   height: 156px;
   width: auto;
   max-height: 36vw;
-  border-radius: 10px;
+  border-radius: 0;
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 2;
