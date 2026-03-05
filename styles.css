@@ -1,0 +1,129 @@
+:root {
+  --bg: #f8f7f2;
+  --text: #1f2328;
+  --tile: #ffffff;
+  --tile-border: #d0d7de;
+  --tile-selected: #1f2328;
+  --tile-selected-text: #ffffff;
+  --green: #76b67a;
+  --yellow: #f2d66b;
+  --indigo: #6d7cc9;
+  --purple: #aa72c8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 60%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+header p {
+  margin-top: 0.5rem;
+}
+
+.status {
+  margin: 1rem 0;
+  font-weight: 700;
+}
+
+.solved-groups {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.solved-group {
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  color: #101215;
+  font-weight: 700;
+}
+
+.solved-group small {
+  display: block;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.tile {
+  border: 1px solid var(--tile-border);
+  border-radius: 10px;
+  min-height: 72px;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  font-weight: 700;
+  background: var(--tile);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.tile:hover {
+  border-color: #8c959f;
+}
+
+.tile.selected {
+  background: var(--tile-selected);
+  color: var(--tile-selected-text);
+  border-color: var(--tile-selected);
+}
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 1px solid #8c959f;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f3f4f6;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.msg {
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .tile {
+    min-height: 62px;
+    font-size: 0.82rem;
+    padding: 0.45rem;
+  }
+}

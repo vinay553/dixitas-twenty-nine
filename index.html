@@ -3,9 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>dixita-turns-twentynine</title>
+  <title>Connections Clone</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
+  <main class="app">
+    <header>
+      <h1>Connections Clone</h1>
+      <p>Find four groups of four related words.</p>
+    </header>
+
+    <section id="status" class="status" aria-live="polite">
+      Mistakes remaining: 4
+    </section>
+
+    <section id="solved-groups" class="solved-groups" aria-live="polite"></section>
+
+    <section id="board" class="board" aria-label="Puzzle board"></section>
+
+    <section class="controls">
+      <button id="shuffle-btn" type="button">Shuffle</button>
+      <button id="clear-btn" type="button">Clear</button>
+      <button id="submit-btn" type="button">Submit Guess</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
 </body>
 </html>
