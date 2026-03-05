@@ -18,13 +18,7 @@
 body {
   margin: 0;
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  background: repeating-linear-gradient(
-    to right,
-    #f7c8dc 0,
-    #f7c8dc 64px,
-    #e58aa0 64px,
-    #e58aa0 128px
-  );
+  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
@@ -101,26 +95,26 @@ header p {
 }
 
 .tile {
-  border: 1px solid var(--tile-border);
+  border: 1px solid #a61b2b;
   border-radius: 10px;
   min-height: 72px;
   padding: 0.6rem;
   font-size: 0.95rem;
   line-height: 1.2;
   font-weight: 700;
-  background: var(--tile);
-  color: var(--text);
+  background: #d62828;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .tile:hover {
-  border-color: #8c959f;
+  border-color: #7f1320;
 }
 
 .tile.selected {
-  background: var(--tile-selected);
-  color: var(--tile-selected-text);
-  border-color: var(--tile-selected);
+  background: #9d0208;
+  color: #ffffff;
+  border-color: #6a040f;
 }
 
 .controls {
