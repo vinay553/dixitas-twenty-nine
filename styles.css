@@ -5,10 +5,10 @@
   --tile-border: #d0d7de;
   --tile-selected: #1f2328;
   --tile-selected-text: #ffffff;
-  --green: #76b67a;
-  --yellow: #f2d66b;
-  --indigo: #6d7cc9;
-  --purple: #aa72c8;
+  --green: #afcfa0;
+  --yellow: #e6d89a;
+  --indigo: #a2abd6;
+  --purple: #c3a8d5;
 }
 
 * {
@@ -39,7 +39,29 @@ header p {
 
 .status {
   margin: 1rem 0;
-  font-weight: 700;
+}
+
+.mistake-dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.mistake-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #8c959f;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .solved-groups {

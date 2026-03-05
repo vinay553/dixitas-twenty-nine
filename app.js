@@ -32,6 +32,8 @@ let solvedGroupIds = new Set();
 
 const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
+const mistakeDotsEl = document.getElementById("mistake-dots");
+const statusTextEl = document.getElementById("status-text");
 const solvedGroupsEl = document.getElementById("solved-groups");
 
 const clearBtn = document.getElementById("clear-btn");
@@ -82,7 +84,14 @@ function renderSolvedGroups() {
 
 function updateStatus() {
   const remaining = maxMistakes - mistakes;
-  statusEl.textContent = `Mistakes remaining: ${remaining}`;
+  mistakeDotsEl.innerHTML = "";
+  for (let i = 0; i < remaining; i += 1) {
+    const dot = document.createElement("span");
+    dot.className = "mistake-dot";
+    mistakeDotsEl.appendChild(dot);
+  }
+  statusEl.setAttribute("aria-label", `Mistakes remaining: ${remaining}`);
+  statusTextEl.textContent = `Mistakes remaining: ${remaining}`;
 }
 
 function isWordSolved(word) {
